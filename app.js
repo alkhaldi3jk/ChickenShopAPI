@@ -8,6 +8,7 @@ const passport = require("passport");
 const productRoutes = require("./apis/products/routes");
 const shopRoutes = require("./apis/shops/shops.routes");
 const userRoutes = require("./apis/users/users.routes");
+const orderRoutes=require("./apis/order/routes")
 
 // DB
 const connectDB = require("./db/database");
@@ -47,6 +48,7 @@ passport.use(jwtStrategy);
 app.use("/api/products", productRoutes);
 app.use("/api/shops", shopRoutes);
 app.use("/api", userRoutes);
+app.use("/api", orderRoutes)
 app.use("/media", express.static(path.join(__dirname, "media")));
 
 console.log(path.join(__dirname, "media"));
